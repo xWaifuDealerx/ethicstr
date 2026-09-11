@@ -155,7 +155,7 @@
       <li><a href="#links">Links</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn primary" href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener">Trade</a>
+    <a class="btn primary" href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener">View on Ethics</a>
   </div>
 </nav>
 
@@ -166,7 +166,7 @@
       <h1 style="margin-top:18px">Hold the strategy.<br><span class="i">Get paid in $ETHICS.</span></h1>
       <p class="lede">$ETHICSTR is paired with <b>$ETHICS</b> on Ethics Launch. Every trade pays a fee in $ETHICS, and <b>90% of those fees are airdropped to holders every two hours</b>. No claiming, no staking, no lockups — you hold, the vault pays.</p>
       <div class="cta">
-        <a class="btn primary" href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener">Trade $ETHICSTR</a>
+        <a class="btn primary" href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener">View on Ethics</a>
         <a class="btn" href="#how">See how fees flow</a>
       </div>
     </div>
@@ -188,17 +188,17 @@
       <div>
         <span class="num">i</span>
         <h3>Trade happens</h3>
-        <p>Someone buys or sells $ETHICSTR in the $ETHICSTR / $ETHICS pool. The pool runs in Rewards mode, which carries a higher fee than a standard pool.</p>
+        <p>Someone buys or sells $ETHICSTR in the $ETHICSTR / $ETHICS pool on Ethics Launch. The pool runs in Rewards mode with a 2% fee.</p>
       </div>
       <div>
         <span class="num">ii</span>
         <h3>Fee is collected in $ETHICS</h3>
-        <p>Instant pool fees are quote-only. Because $ETHICS is the quote asset, every fee accrues in $ETHICS and routes to the Rewards vault.</p>
+        <p>Instant DAMMv2 fees are quote-only. Because $ETHICS is the quote asset, the whole 2% accrues in $ETHICS and routes to the Rewards vault.</p>
       </div>
       <div>
         <span class="num">iii</span>
         <h3>Vault pays holders</h3>
-        <p>Every 2 hours (UTC) the vault snapshots $ETHICSTR balances and airdrops the accumulated $ETHICS to eligible holders. Nothing to claim.</p>
+        <p>Every 2 hours (UTC) the vault claims the accumulated fees and airdrops 90% to $ETHICSTR holders as $ETHICS. Ethics keeps 10%. Nothing to claim.</p>
       </div>
     </div>
     <div class="split" role="img" aria-label="Fee split: 90 percent to holders, 10 percent to Ethics">
@@ -211,13 +211,13 @@
   <section id="stats">
     <div class="sec-head">
       <h2>By the numbers</h2>
-      <p>Live figures will populate once the pool is open. Until then these are the fields the site tracks.</p>
+      <p>Payouts read directly from the Ethics Rewards ledger; market data from DexScreener. Refreshed each minute. <span id="statsNote" class="ph">Loading…</span></p>
     </div>
     <div class="stats">
-      <div class="stat"><span class="v ph">—</span><span class="k">Market cap</span></div>
-      <div class="stat"><span class="v ph">—</span><span class="k">$ETHICS distributed to holders</span></div>
-      <div class="stat"><span class="v ph">—</span><span class="k">Last airdrop</span></div>
-      <div class="stat"><span class="v ph">—</span><span class="k">Holders</span></div>
+      <div class="stat"><span class="v" id="stPaid">0 ETHICS</span><span class="k">$ETHICS paid to holders · lifetime</span></div>
+      <div class="stat"><span class="v ph" id="stLast">—</span><span class="k" id="stLastK">Last airdrop</span></div>
+      <div class="stat"><span class="v ph" id="stMcap">—</span><span class="k">Market cap</span></div>
+      <div class="stat"><span class="v ph" id="stVol">—</span><span class="k">24h volume</span></div>
     </div>
   </section>
 
@@ -235,8 +235,9 @@
       </dl>
       <dl>
         <div class="row"><dt>Mint address</dt><dd class="copy"><span id="mint">8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe</span><button type="button" id="copyMint" hidden>copy</button></dd></div>
-        <div class="row"><dt>Launch</dt><dd>Ethics Launch · Instant pool (DAMMv2)</dd></div>
-        <div class="row"><dt>Liquidity</dt><dd>Locked at launch</dd></div>
+        <div class="row"><dt>Launch</dt><dd>Ethics Launch · Instant DAMMv2 · Rewards mode</dd></div>
+        <div class="row"><dt>Pool</dt><dd><a href="https://dexscreener.com/solana/AZvyc14YpLdq6V7VyFG7GKK6vUrbcwjPo9oqpHnEKGuk" target="_blank" rel="noopener">AZvy…KGuk</a> · 2% fee, quote-only</dd></div>
+        <div class="row"><dt>Liquidity</dt><dd>Permanently locked · mint &amp; freeze disabled</dd></div>
         <div class="row"><dt>Payout cadence</dt><dd>Every 2h · UTC</dd></div>
       </dl>
     </div>
@@ -248,9 +249,9 @@
       <p>Official channels. Anything not listed here is not us.</p>
     </div>
     <div class="links">
-      <a href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener"><span class="t">Trade on Ethics Launch</span><span class="s">ethics.ltd/token/8zDA…HnQe</span></a>
+      <a href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener"><span class="t">View on Ethics</span><span class="s">ethics.ltd/token/8zDA…HnQe</span></a>
       <a href="https://jup.ag/swap?sell=So11111111111111111111111111111111111111112&amp;buy=8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener"><span class="t">Swap on Jupiter</span><span class="s">SOL → $ETHICSTR</span></a>
-      <a href="https://dexscreener.com/solana/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener"><span class="t">Chart</span><span class="s">dexscreener</span></a>
+      <a href="https://dexscreener.com/solana/AZvyc14YpLdq6V7VyFG7GKK6vUrbcwjPo9oqpHnEKGuk" target="_blank" rel="noopener"><span class="t">Chart</span><span class="s">dexscreener · ETHICSTR/ETHICS</span></a>
       <a href="https://x.com/ethicstrat" target="_blank" rel="noopener"><span class="t">X / Twitter</span><span class="s">@ethicstrat</span></a>
     </div>
   </section>
@@ -262,7 +263,7 @@
     <div class="faq">
       <details open>
         <summary>Do I have to stake or claim anything?</summary>
-        <p>No. The Ethics Rewards vault airdrops $ETHICS straight to the wallets holding $ETHICSTR at each snapshot. Keep the tokens in a wallet you control; tokens sitting on an exchange won't be seen.</p>
+        <p>No. The Ethics Rewards vault airdrops $ETHICS straight to the wallets holding $ETHICSTR at each epoch. Keep the tokens in a wallet you control so the snapshot can see them.</p>
       </details>
       <details>
         <summary>Why is the payout in $ETHICS and not $ETHICSTR?</summary>
@@ -278,7 +279,7 @@
       </details>
       <details>
         <summary>Is liquidity locked?</summary>
-        <p>Yes. Ethics Launch locks liquidity at launch as part of the launch mechanism. The mint and pool can be verified on the <a href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener">token page at ethics.ltd</a>.</p>
+        <p>Yes — permanently. The Instant DAMMv2 pool is one-sided and locked; liquidity cannot be withdrawn, and mint and freeze authority are disabled. Verify it on the <a href="https://www.ethics.ltd/token/8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe" target="_blank" rel="noopener">token page at ethics.ltd</a>.</p>
       </details>
     </div>
   </section>
@@ -306,6 +307,35 @@
     nextEl.textContent='next '+hhmm(new Date(next))+' UTC';
   }
   tick(); setInterval(tick,1000);
+
+  // live stats: Ethics Rewards ledger (proxied via /api/ethics) + DexScreener market data
+  var MINT='8zDA2UHqTM4AZUFazCu9TVBQ7B9nPEfmsabwyXYLHnQe', ETHICS_DECIMALS=9;
+  function usd(n){ if(n==null||isNaN(n)) return '—';
+    if(n>=1e9) return '$'+(n/1e9).toFixed(2)+'B'; if(n>=1e6) return '$'+(n/1e6).toFixed(2)+'M'; if(n>=1e3) return '$'+(n/1e3).toFixed(1)+'K'; return '$'+n.toFixed(0); }
+  function ethicsAmt(atomic){ var n=Number(atomic||0)/Math.pow(10,ETHICS_DECIMALS); return (n>=1000?n.toLocaleString('en-US',{maximumFractionDigits:0}):n.toLocaleString('en-US',{maximumFractionDigits:n>=1?2:4}))+' ETHICS'; }
+  function set(id,val,ok){ var el=document.getElementById(id); el.textContent=val; el.classList.toggle('ph',!ok); }
+  var noteParts={};
+  function note(){ var n=document.getElementById('statsNote'); n.textContent=[noteParts.r,noteParts.m].filter(Boolean).join(' · '); n.classList.remove('ph'); }
+  function loadRewards(){
+    fetch('/api/ethics/rewards?mint='+MINT).then(function(r){return r.json()}).then(function(d){
+      var e=d.entry||{}, ep=d.epoch||{};
+      set('stPaid',ethicsAmt(e.lifetimePayoutAtomic),true);
+      if(e.latestEpochId){ var t=e.latestEpochId.replace('T',' ')+':00 UTC';
+        set('stLast',ethicsAmt(e.lastPayoutTotalAtomic),true);
+        document.getElementById('stLastK').textContent='Last airdrop · '+t+(ep.recipients?' · '+ep.recipients.length+' wallet'+(ep.recipients.length===1?'':'s'):'');
+      } else { set('stLast','none yet',false); }
+      noteParts.r='Rewards ledger '+hhmm(new Date(d.updatedAt||Date.now()))+' UTC'; note();
+    }).catch(function(){ noteParts.r='Rewards ledger unavailable'; note(); });
+  }
+  function loadMarket(){
+    fetch('https://api.dexscreener.com/latest/dex/tokens/'+MINT).then(function(r){return r.json()}).then(function(d){
+      var pairs=(d.pairs||[]).filter(function(p){return p.baseToken&&p.baseToken.address===MINT});
+      var mcap=0,vol=0; pairs.forEach(function(p){ var m=+(p.marketCap||p.fdv||0); if(m>mcap) mcap=m; vol+=+(p.volume&&p.volume.h24||0); });
+      set('stMcap',usd(mcap),mcap>0); set('stVol',usd(vol),vol>0);
+      noteParts.m='market '+hhmm(new Date())+' UTC'; note();
+    }).catch(function(){ noteParts.m='market data unavailable'; note(); });
+  }
+  loadRewards(); loadMarket(); setInterval(function(){loadRewards();loadMarket();},60000);
 
   var mint=document.getElementById('mint'),btn=document.getElementById('copyMint');
   if(mint && !mint.classList.contains('ph')){ btn.hidden=false;
