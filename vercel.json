@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/api/ethics/rewards", "destination": "https://www.ethics.ltd/api/rewards" }
+  ],
+  "headers": [
+    { "source": "/api/ethics/(.*)", "headers": [ { "key": "Cache-Control", "value": "s-maxage=60, stale-while-revalidate=300" } ] }
+  ]
+}
