@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="$ETHICSTR — the Solana strategy token on Ethics Launch. Paired with $ETHICS; holders receive $ETHICS from trading fees every two hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>$ETHICSTR</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0B0D0F; --surface:#13161B; --surface-2:#191D23; --line:#232830; --line-strong:#2F3640;
+    --text:#ECE9E2; --muted:#8B9099; --faint:#5B616B;
+    --accent:#D9B56A; --accent-ink:#0B0D0F; --accent-soft:rgba(217,181,106,.12);
+    --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{color-scheme:dark}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-inline:clamp(16px,4vw,40px)}
+  a{color:inherit}
+  h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+  p{margin:0}
+  .wrap{max-width:var(--max);margin-inline:auto}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .accent{color:var(--accent)}
+  .i{font-style:italic}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:5;background:rgba(11,13,15,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--mono);font-weight:500;letter-spacing:.02em}
+  .mono-mark{width:26px;height:26px;border:1px solid var(--accent);display:grid;place-items:center;font-family:var(--serif);font-style:italic;color:var(--accent);font-size:18px;line-height:1}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:wrap;font-size:14px}
+  nav ul a{text-decoration:none;color:var(--muted)}
+  nav ul a:hover,nav ul a:focus-visible{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--line-strong);border-radius:4px;text-decoration:none;font-size:14px;font-weight:500;background:transparent;color:var(--text);cursor:pointer;font-family:var(--sans)}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .btn.primary:hover{background:#E6C67F;color:var(--accent-ink)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* hero */
+  .hero{padding-block:clamp(56px,9vw,120px) clamp(40px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.9fr);gap:48px;align-items:end}
+  .hero h1{font-family:var(--serif);font-size:clamp(46px,7.5vw,96px);line-height:.98;letter-spacing:-.01em}
+  .hero h1 .i{color:var(--accent)}
+  .lede{margin-top:24px;max-width:56ch;font-size:clamp(17px,1.6vw,20px);color:var(--muted)}
+  .lede b{color:var(--text);font-weight:500}
+  .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+
+  .clock{border:1px solid var(--line);background:var(--surface);padding:24px;display:grid;gap:14px}
+  .clock .time{font-family:var(--mono);font-size:clamp(44px,6vw,64px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .clock .sub{font-size:13px;color:var(--muted)}
+  .bar{height:3px;background:var(--line);position:relative;overflow:hidden}
+  .bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);width:0%}
+  .clock .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+
+  /* sections */
+  section{padding-block:clamp(48px,7vw,88px);border-top:1px solid var(--line)}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px 48px;margin-bottom:40px}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);line-height:1.05}
+  .sec-head p{color:var(--muted);max-width:60ch;align-self:start;padding-top:.5em}
+
+  /* flow */
+  .flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}
+  .flow > div{padding:28px 24px;display:grid;gap:12px;align-content:start;border-right:1px solid var(--line)}
+  .flow > div:last-child{border-right:0}
+  .flow h3{font-size:20px;font-weight:500}
+  .flow p{color:var(--muted);font-size:15px}
+  .flow .num{font-family:var(--serif);font-style:italic;font-size:34px;color:var(--accent);line-height:1}
+  .split{margin-top:32px;display:grid;grid-template-columns:9fr 1fr;gap:4px;font-family:var(--mono);font-size:12px}
+  .split div{padding:12px 14px;border:1px solid var(--line)}
+  .split .h{background:var(--accent-soft);border-color:rgba(217,181,106,.35);color:var(--accent)}
+  .split .e{color:var(--muted);text-align:center;padding-inline:6px}
+  .split-note{margin-top:10px;font-size:13px;color:var(--faint)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .stat{background:var(--bg);padding:22px 20px;display:grid;gap:6px}
+  .stat .v{font-family:var(--mono);font-size:26px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .stat .v.ph{color:var(--faint)}
+  .stat .k{font-size:13px;color:var(--muted)}
+
+  /* token */
+  .kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+  .kv dl{margin:0}
+  .kv .row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-block:14px;border-bottom:1px solid var(--line)}
+  .kv dt{color:var(--muted);font-size:14px}
+  .kv dd{margin:0;font-family:var(--mono);font-size:14px;overflow-wrap:anywhere}
+  .ph{color:var(--faint)}
+  .copy{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .copy button{font:inherit;font-family:var(--mono);font-size:12px;padding:3px 8px;border:1px solid var(--line-strong);background:transparent;color:var(--muted);border-radius:3px;cursor:pointer}
+  .copy button:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* links */
+  .links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .links a{display:grid;gap:8px;padding:20px;border:1px solid var(--line);text-decoration:none;background:var(--surface)}
+  .links a:hover{border-color:var(--accent)}
+  .links .t{font-weight:500}
+  .links .s{font-family:var(--mono);font-size:12px;color:var(--faint)}
+
+  /* faq */
+  .faq{display:grid;gap:0}
+  details{border-top:1px solid var(--line)}
+  details:last-child{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;padding-block:18px;font-size:18px;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
+  details[open] summary::after{content:"–"}
+  details p{padding-bottom:20px;color:var(--muted);max-width:66ch}
+
+  footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+  footer .disc{max-width:60ch}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr}
+    .sec-head{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr}
+    .flow > div{border-right:0;border-bottom:1px solid var(--line)}
+    .flow > div:last-child{border-bottom:0}
+    .stats,.links{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .kv{grid-template-columns:1fr}
+  }
+  @media (max-width:480px){
+    .stats,.links{grid-template-columns:1fr}
+    .kv .row{grid-template-columns:1fr;gap:4px}
+    .split{grid-template-columns:4fr 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+</style>
+</head>
+<body><nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mono-mark">e</span>$ETHICSTR</a>
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#token">Token</a></li>
+      <li><a href="#links">Links</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn primary" href="#links">Trade</a>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Strategy token · Ethics Launch · Solana</p>
+      <h1 style="margin-top:18px">Hold the strategy.<br><span class="i">Get paid in $ETHICS.</span></h1>
+      <p class="lede">$ETHICSTR is paired with <b>$ETHICS</b> on Ethics Launch. Every trade pays a fee in $ETHICS, and <b>90% of those fees are airdropped to holders every two hours</b>. No claiming, no staking, no lockups — you hold, the vault pays.</p>
+      <div class="cta">
+        <a class="btn primary" href="#links">Trade $ETHICSTR</a>
+        <a class="btn" href="#how">See how fees flow</a>
+      </div>
+    </div>
+    <div class="clock" aria-live="polite">
+      <p class="eyebrow">Next airdrop in</p>
+      <div class="time" id="countdown">--:--:--</div>
+      <div class="bar"><i id="bar"></i></div>
+      <p class="sub">Rewards vault pays out on the even hour, UTC. Holders receive $ETHICS pro rata to their $ETHICSTR balance at snapshot.</p>
+      <div class="meta"><span id="nowUtc">— UTC</span><span id="nextUtc">next — UTC</span></div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="sec-head">
+      <h2>Real market. <span class="i accent">Real yield.</span></h2>
+      <p>Ethics Launch pairs new tokens with real quote assets instead of a synthetic curve. $ETHICSTR takes $ETHICS as its quote, with liquidity locked at launch, so the fee stream is denominated in the token you actually want to accumulate.</p>
+    </div>
+    <div class="flow">
+      <div>
+        <span class="num">i</span>
+        <h3>Trade happens</h3>
+        <p>Someone buys or sells $ETHICSTR in the $ETHICSTR / $ETHICS pool. The pool runs in Rewards mode, which carries a higher fee than a standard pool.</p>
+      </div>
+      <div>
+        <span class="num">ii</span>
+        <h3>Fee is collected in $ETHICS</h3>
+        <p>Instant pool fees are quote-only. Because $ETHICS is the quote asset, every fee accrues in $ETHICS and routes to the Rewards vault.</p>
+      </div>
+      <div>
+        <span class="num">iii</span>
+        <h3>Vault pays holders</h3>
+        <p>Every 2 hours (UTC) the vault snapshots $ETHICSTR balances and airdrops the accumulated $ETHICS to eligible holders. Nothing to claim.</p>
+      </div>
+    </div>
+    <div class="split" role="img" aria-label="Fee split: 90 percent to holders, 10 percent to Ethics">
+      <div class="h">90% · airdropped to $ETHICSTR holders</div>
+      <div class="e">10%</div>
+    </div>
+    <p class="split-note">Ethics collects the remaining 10% as the protocol fee. Cadence and split follow the Ethics Rewards program as published at ethics.ltd/rewards.</p>
+  </section>
+
+  <section id="stats">
+    <div class="sec-head">
+      <h2>By the numbers</h2>
+      <p>Live figures will populate once the pool is open. Until then these are the fields the site tracks.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="v ph">—</span><span class="k">Market cap</span></div>
+      <div class="stat"><span class="v ph">—</span><span class="k">$ETHICS distributed to holders</span></div>
+      <div class="stat"><span class="v ph">—</span><span class="k">Last airdrop</span></div>
+      <div class="stat"><span class="v ph">—</span><span class="k">Holders</span></div>
+    </div>
+  </section>
+
+  <section id="token">
+    <div class="sec-head">
+      <h2>Token</h2>
+      <p>Verify the mint on Ethics Launch before trading. The contract address below is the only one that counts.</p>
+    </div>
+    <div class="kv">
+      <dl>
+        <div class="row"><dt>Name</dt><dd>Ethics Strategy</dd></div>
+        <div class="row"><dt>Ticker</dt><dd>$ETHICSTR</dd></div>
+        <div class="row"><dt>Chain</dt><dd>Solana</dd></div>
+        <div class="row"><dt>Quote asset</dt><dd>$ETHICS</dd></div>
+      </dl>
+      <dl>
+        <div class="row"><dt>Mint address</dt><dd class="copy"><span class="ph" id="mint">Not published yet</span><button type="button" id="copyMint" hidden>copy</button></dd></div>
+        <div class="row"><dt>Launch</dt><dd>Ethics Launch · Instant pool (DAMMv2)</dd></div>
+        <div class="row"><dt>Liquidity</dt><dd>Locked at launch</dd></div>
+        <div class="row"><dt>Payout cadence</dt><dd>Every 2h · UTC</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="links">
+    <div class="sec-head">
+      <h2>Links</h2>
+      <p>Official channels. Anything not listed here is not us.</p>
+    </div>
+    <div class="links">
+      <a href="https://www.ethics.ltd/launches" target="_blank" rel="noopener"><span class="t">Trade on Ethics Launch</span><span class="s">ethics.ltd · pool link coming</span></a>
+      <a href="#" aria-disabled="true"><span class="t">Chart</span><span class="s ph">coming at launch</span></a>
+      <a href="#" aria-disabled="true"><span class="t">X / Twitter</span><span class="s ph">coming at launch</span></a>
+      <a href="#" aria-disabled="true"><span class="t">Telegram</span><span class="s ph">coming at launch</span></a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="sec-head">
+      <h2>Questions</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Do I have to stake or claim anything?</summary>
+        <p>No. The Ethics Rewards vault airdrops $ETHICS straight to the wallets holding $ETHICSTR at each snapshot. Keep the tokens in a wallet you control; tokens sitting on an exchange won't be seen.</p>
+      </details>
+      <details>
+        <summary>Why is the payout in $ETHICS and not $ETHICSTR?</summary>
+        <p>The pool's fees are quote-only, and $ETHICS is the quote asset. That means holders accumulate the platform token rather than more of the token they already hold — the "strategy" is a position in $ETHICS that funds itself through trading volume.</p>
+      </details>
+      <details>
+        <summary>How often do airdrops happen?</summary>
+        <p>Every two hours on the UTC clock. The counter at the top of this page shows the time to the next one. A quiet two-hour window with no trades simply pays out nothing that cycle.</p>
+      </details>
+      <details>
+        <summary>What is the "strategy" in strategy token?</summary>
+        <p>A strategy token is a token whose purpose is to accumulate a specific asset for its holders. $ETHICSTR is built to accumulate $ETHICS. Volume in, $ETHICS out.</p>
+      </details>
+      <details>
+        <summary>Is liquidity locked?</summary>
+        <p>Yes. Ethics Launch locks liquidity at launch as part of the launch mechanism. The mint and pool can be verified on ethics.ltd once published.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <p class="disc">Not investment advice. Verify mints before you trade. $ETHICSTR is an independent launch using the Ethics Launch mechanism; it is not operated by Ethics.</p>
+    <p class="mono" style="font-family:var(--mono)">© 2026 $ETHICSTR</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var cd=document.getElementById('countdown'),bar=document.getElementById('bar'),
+      nowEl=document.getElementById('nowUtc'),nextEl=document.getElementById('nextUtc');
+  var PERIOD=2*3600*1000;
+  function pad(n){return String(n).padStart(2,'0')}
+  function hhmm(d){return pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())}
+  function tick(){
+    var now=new Date(), t=now.getTime();
+    var next=Math.ceil(t/PERIOD)*PERIOD; if(next===t) next+=PERIOD;
+    var left=next-t, s=Math.floor(left/1000);
+    cd.textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60);
+    bar.style.width=((PERIOD-left)/PERIOD*100).toFixed(2)+'%';
+    nowEl.textContent=hhmm(now)+' UTC';
+    nextEl.textContent='next '+hhmm(new Date(next))+' UTC';
+  }
+  tick(); setInterval(tick,1000);
+
+  var mint=document.getElementById('mint'),btn=document.getElementById('copyMint');
+  if(mint && !mint.classList.contains('ph')){ btn.hidden=false;
+    btn.addEventListener('click',function(){ navigator.clipboard&&navigator.clipboard.writeText(mint.textContent).then(function(){btn.textContent='copied';setTimeout(function(){btn.textContent='copy'},1500)}) });
+  }
+})();
+</script>
+</body>
+</html>
